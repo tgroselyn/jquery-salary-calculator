@@ -3,17 +3,19 @@ let employeeData = [];
 
 $(readyNow);
 
-function appendToTable(employee) {
+function appendToTable() {
     console.log('in appendToTable');
+    //define what you are appending
+    let newest = employeeData[employeeData.length-1];
     //target table body
     let el = $('#employeeTable').find('tbody');
     //append new row with td's for each key in employee object
     el.append(`<tr>
-    <td>${employee.firstName}</td>
-    <td>${employee.lastName}</td>
-    <td>${employee.id}</td>
-    <td>${employee.title}</td>
-    <td>${employee.annualSalary}</td>
+    <td>${newest.firstName}</td>
+    <td>${newest.lastName}</td>
+    <td>${newest.id}</td>
+    <td>${newest.title}</td>
+    <td>${newest.annualSalary}</td>
     </tr>`)
 }
 
@@ -39,9 +41,6 @@ function collectInfo() {
     $('#idIn').val(''),
     $('#titleIn').val(''),
     $('#annualSalaryIn').val('')
-    
-    //update table body with info (function)
-    appendToTable(employee);
 }
 
 function readyNow() {
@@ -51,5 +50,8 @@ function readyNow() {
 
 function setEventListeners() {
     //submitEmployeeButton, on click
-    $('#submitEmployeeButton').on('click', collectInfo);
+    $('#submitEmployeeButton').on('click', function() {
+        collectInfo();
+        appendToTable();
+    });
 }
