@@ -3,13 +3,23 @@ let employeeData = [];
 
 $(readyNow);
 
-function appendToTable() {
+function appendToTable(employee) {
     console.log('in appendToTable');
+    //target table body
+    let el = $('#employeeTable').find('tbody');
+    //append new row with td's for each key in employee object
+    el.append(`<tr>
+    <td>${employee.firstName}</td>
+    <td>${employee.lastName}</td>
+    <td>${employee.id}</td>
+    <td>${employee.title}</td>
+    <td>${employee.annualSalary}</td>
+    </tr>`)
 }
 
 function collectInfo() {
     console.log('in collectInfo');
-    
+
     //create new employee object
     let employee = {
         //set keys to input value fields
@@ -31,7 +41,7 @@ function collectInfo() {
     $('#annualSalaryIn').val('')
     
     //update table body with info (function)
-    appendToTable();
+    appendToTable(employee);
 }
 
 function readyNow() {
