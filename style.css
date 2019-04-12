@@ -1,0 +1,25 @@
+body {
+    background-color: antiquewhite;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 50px;
+}
+
+#costDisplayArea {
+    text-align: right;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+}
+
+table td {
+    width: 20%;
+}
