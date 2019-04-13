@@ -18,20 +18,22 @@ function appendToTable() {
     <td>${newest.title}</td>
     <td>${newest.annualSalary}</td>
     </tr>`)
-}
-
+} //end appendToTable
 
 function calculateMonthlyCost() {
     console.log('in calculateMonthlyCost');
+    
     //define variable for total annual cost
     let totalAnnualSalaries = 0;
+    
     //loop through employeeData and sum annual salaries
     for (employee of employeeData) {
         totalAnnualSalaries += Number(employee.annualSalary);
     }
+    
     //divide total number by 12 and assign to monthlyCost variable
     monthlyCost = totalAnnualSalaries / 12;
-}
+} //end calculateMonthlyCost
 
 function collectInfo() {
     console.log('in collectInfo');
@@ -55,12 +57,12 @@ function collectInfo() {
     $('#idIn').val(''),
     $('#titleIn').val(''),
     $('#annualSalaryIn').val('')
-}
+} //end collectInfo
 
 function readyNow() {
     console.log('js');
     setEventListeners();
-}
+} //end readyNow
 
 function setEventListeners() {
     //submitEmployeeButton, on click
@@ -82,16 +84,19 @@ function setEventListeners() {
         calculateMonthlyCost();
         updateMonthlyCost();
     });
-}
+} //end setEventListeners
 
 function updateMonthlyCost() {
     console.log('in updateMonthlyCost');
+    
     //empty span on DOM
     $('#monthlyCost').empty();
+    
     //append new number to DOM (limited to 2 decimal places)
     $('#monthlyCost').append(monthlyCost.toFixed(2));
+    
     //if over 20000, make span background red
     if (monthlyCost > 20000) {
         $('#costDisplayArea').find('h2').css('background-color', 'red');
     }
-}
+} //end updateMonthlyCost
