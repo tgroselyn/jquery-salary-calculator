@@ -15,6 +15,11 @@ h2 {
     text-align: right;
 }
 
+#costDisplayArea h2 {
+    display: inline-block;
+    padding: 10px;
+}
+
 table {
     text-align: center;
     width: 100%;

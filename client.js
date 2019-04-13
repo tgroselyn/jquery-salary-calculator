@@ -80,5 +80,18 @@ function setEventListeners() {
         collectInfo();
         appendToTable();
         calculateMonthlyCost();
+        updateMonthlyCost();
     });
+}
+
+function updateMonthlyCost() {
+    console.log('in updateMonthlyCost');
+    //empty span on DOM
+    $('#monthlyCost').empty();
+    //append new number to DOM (limited to 2 decimal places)
+    $('#monthlyCost').append(monthlyCost.toFixed(2));
+    //if over 20000, make span background red
+    if (monthlyCost > 20000) {
+        $('#costDisplayArea').find('h2').css('background-color', 'red');
+    }
 }
