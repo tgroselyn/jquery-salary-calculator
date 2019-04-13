@@ -1,5 +1,6 @@
 //global variables
 let employeeData = [];
+let monthlyCost = 0;
 
 $(readyNow);
 
@@ -17,6 +18,19 @@ function appendToTable() {
     <td>${newest.title}</td>
     <td>${newest.annualSalary}</td>
     </tr>`)
+}
+
+
+function calculateMonthlyCost() {
+    console.log('in calculateMonthlyCost');
+    //define variable for total annual cost
+    let totalAnnualSalaries = 0;
+    //loop through employeeData and sum annual salaries
+    for (employee of employeeData) {
+        totalAnnualSalaries += Number(employee.annualSalary);
+    }
+    //divide total number by 12 and assign to monthlyCost variable
+    monthlyCost = totalAnnualSalaries / 12;
 }
 
 function collectInfo() {
@@ -65,10 +79,6 @@ function setEventListeners() {
         
         collectInfo();
         appendToTable();
-        updateMonthlyCost();
+        calculateMonthlyCost();
     });
-}
-
-function updateMonthlyCost() {
-    console.log('in updateMonthlyCost');
 }
