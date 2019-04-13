@@ -1,6 +1,7 @@
 //global variables
 let employeeData = [];
 let monthlyCost = 0;
+let deleteButtonCount = 0;
 
 $(readyNow);
 
@@ -11,13 +12,20 @@ function appendToTable() {
     //target table body
     let el = $('#employeeTable').find('tbody');
     //append new row with td's for each key in employee object
+    //add delete button with id matching index of newest in array
+    deleteButtonCount ++;
     el.append(`<tr>
     <td>${newest.firstName}</td>
     <td>${newest.lastName}</td>
     <td>${newest.id}</td>
     <td>${newest.title}</td>
     <td>${newest.annualSalary}</td>
-    </tr>`)
+    <td><button id="deleteButton${deleteButtonCount}">Delete</button></td>
+    </tr>`);
+
+    //activate new delete button listener, on click
+    $(`#deleteButton${deleteButtonCount}`).on('click', deleteRow);
+
 } //end appendToTable
 
 function calculateMonthlyCost() {
@@ -59,12 +67,20 @@ function collectInfo() {
     $('#annualSalaryIn').val('')
 } //end collectInfo
 
+function deleteRow() {
+    console.log('in deleteRow');
+
+    
+} //end deleteRow
+
 function readyNow() {
     console.log('js');
     setEventListeners();
 } //end readyNow
 
 function setEventListeners() {
+    console.log('in setEventListeners');
+
     //submitEmployeeButton, on click
     $('#submitEmployeeButton').on('click', function() {
         
@@ -83,7 +99,8 @@ function setEventListeners() {
         appendToTable();
         calculateMonthlyCost();
         updateMonthlyCost();
-    });
+    }); //end submitEmployeeButton
+
 } //end setEventListeners
 
 function updateMonthlyCost() {
