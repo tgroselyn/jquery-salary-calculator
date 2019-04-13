@@ -5,7 +5,7 @@ $(readyNow);
 
 function appendToTable() {
     console.log('in appendToTable');
-    //define what you are appending
+    //define what data you are appending
     let newest = employeeData[employeeData.length-1];
     //target table body
     let el = $('#employeeTable').find('tbody');
@@ -51,7 +51,24 @@ function readyNow() {
 function setEventListeners() {
     //submitEmployeeButton, on click
     $('#submitEmployeeButton').on('click', function() {
+        
+        //make sure all input fields are filled in
+        if (!$('#firstNameIn').val() ||
+            !$('#lastNameIn').val() ||
+            !$('#idIn').val() ||
+            !$('#titleIn').val() ||
+            !$('#annualSalaryIn').val()
+        ) {
+            alert('all fields must be completed');
+            return false;
+        }
+        
         collectInfo();
         appendToTable();
+        updateMonthlyCost();
     });
+}
+
+function updateMonthlyCost() {
+    console.log('in updateMonthlyCost');
 }
