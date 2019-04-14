@@ -6,27 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="jquery-3.4.0.js"></script>
     <script src="client.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>jQuery Salary Calculator</title>
 </head>
-<body>
+<body class="container-fluid">
     <header>
         <h1>jQuery Salary Calculator</h1>
         <p>Thomas Roselyn</p>
     </header>
     <main>
-        <div id="inputArea">
+        <div id="inputArea" class="form-group">
             <h2>Add Employee</h2>
-            <input id="firstNameIn" type="text" placeholder="First Name">
-            <input id="lastNameIn" type="text" placeholder="Last Name">
-            <input id="idIn" type="text" placeholder="ID">
-            <input id="titleIn" type="text" placeholder="Title">
-            <input id="annualSalaryIn" type="text" placeholder="Annual Salary">
-            <button id="submitEmployeeButton" type="button">Submit</button>
+            <div class="row">
+                <div class="col">
+                    <input id="firstNameIn" class="form-control" type="text" placeholder="First Name">
+                </div>
+                <div class="col">
+                    <input id="lastNameIn" class="form-control" type="text" placeholder="Last Name">
+                </div>
+                <div class="col">
+                    <input id="idIn" class="form-control" type="text" placeholder="ID">
+                </div>
+                <div class="col">
+                    <input id="titleIn" class="form-control" type="text" placeholder="Title">
+                </div>
+                <div class="col">
+                    <input id="annualSalaryIn" class="form-control" type="text" placeholder="Annual Salary">
+                </div>
+                <div class="col">
+                    <button id="submitEmployeeButton" class="btn-success" type="button">Submit</button>
+                </div>
+            </div>
         </div>
         <div id="tableArea">
             <h2>Employees</h2>
-            <table id="employeeTable">
+            <table id="employeeTable" class="table table-striped">
                 <thead>
                     <tr>
                         <th>First Name</th>
