@@ -23,8 +23,10 @@ function appendToTable() {
     <td><button id="deleteButton${deleteButtonCount}">Delete</button></td>
     </tr>`);
 
-    //activate new delete button listener, on click
-    $(`#deleteButton${deleteButtonCount}`).on('click', deleteRow);
+    //activate new delete button listener, on click send to deleteRow
+    $(`#deleteButton${deleteButtonCount}`).on('click', function() {
+        deleteRow($(this));
+    });
 
 } //end appendToTable
 
@@ -67,10 +69,24 @@ function collectInfo() {
     $('#annualSalaryIn').val('')
 } //end collectInfo
 
-function deleteRow() {
+function deleteRow(thisDeleteButton) {
     console.log('in deleteRow');
 
-    
+        //delete matching employee (by empID) from employeeData
+        let empId = thisDeleteButton.parent().prev().prev().prev().text();
+        for (let i = 0; i < employeeData.length; i++) {
+            if (empId === employeeData[i].id) {
+                employeeData.splice(i, 1);
+            }
+        }
+        
+        //delete row from table
+        thisDeleteButton.parent().parent().remove();
+        
+        //recalculate monthly cost (optional)
+        calculateMonthlyCost();
+        updateMonthlyCost();
+
 } //end deleteRow
 
 function readyNow() {
@@ -112,8 +128,10 @@ function updateMonthlyCost() {
     //append new number to DOM (limited to 2 decimal places)
     $('#monthlyCost').append(monthlyCost.toFixed(2));
     
-    //if over 20000, make span background red
+    //if over 20000 add class redBG to span, under 20000 remove
     if (monthlyCost > 20000) {
-        $('#costDisplayArea').find('h2').css('background-color', 'red');
+        $('#costDisplayArea').find('h2').addClass('redBG');
+    } else if (monthlyCost < 20000) {
+        $('#costDisplayArea').find('h2').removeClass('redBG');
     }
 } //end updateMonthlyCost

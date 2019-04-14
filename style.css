@@ -20,6 +20,10 @@ h2 {
     padding: 10px;
 }
 
+.redBG {
+    background-color: red;
+}
+
 table {
     text-align: center;
     width: 100%;
