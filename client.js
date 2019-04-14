@@ -17,7 +17,7 @@ function appendToTable() {
     el.append(`<tr>
     <td>${newest.firstName}</td>
     <td>${newest.lastName}</td>
-    <td>${newest.id}</td>
+    <td class="empId">${newest.id}</td>
     <td>${newest.title}</td>
     <td>${newest.annualSalary}</td>
     <td><button id="deleteButton${deleteButtonCount}">Delete</button></td>
@@ -25,7 +25,8 @@ function appendToTable() {
 
     //activate new delete button listener, on click send to deleteRow
     $(`#deleteButton${deleteButtonCount}`).on('click', function() {
-        deleteRow($(this));
+        let targetRow = $(this).parent().parent();
+        deleteRow(targetRow);
     });
 
 } //end appendToTable
@@ -69,11 +70,11 @@ function collectInfo() {
     $('#annualSalaryIn').val('')
 } //end collectInfo
 
-function deleteRow(thisDeleteButton) {
+function deleteRow(targetRow) {
     console.log('in deleteRow');
 
         //delete matching employee (by empID) from employeeData
-        let empId = thisDeleteButton.parent().prev().prev().prev().text();
+        let empId = targetRow.find('.empId').text();
         for (let i = 0; i < employeeData.length; i++) {
             if (empId === employeeData[i].id) {
                 employeeData.splice(i, 1);
@@ -81,7 +82,7 @@ function deleteRow(thisDeleteButton) {
         }
         
         //delete row from table
-        thisDeleteButton.parent().parent().remove();
+        targetRow.remove();
         
         //recalculate monthly cost (optional)
         calculateMonthlyCost();
