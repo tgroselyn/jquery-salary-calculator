@@ -38,3 +38,7 @@ table {
     padding: 20px;
     margin-bottom: 30px;
 }
+
+#submitEmployeeButton {
+    margin-top: 20px;
+}
