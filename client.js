@@ -20,7 +20,7 @@ function appendToTable() {
     <td class="empId">${newest.id}</td>
     <td>${newest.title}</td>
     <td>${newest.annualSalary}</td>
-    <td><button id="deleteButton${deleteButtonCount}">Delete</button></td>
+    <td><button id="deleteButton${deleteButtonCount}" class="btn btn-outline-danger">Delete</button></td>
     </tr>`);
 
     //activate new delete button listener, on click send to deleteRow
@@ -132,7 +132,7 @@ function updateMonthlyCost() {
     //if over 20000 add class redBG to span, under 20000 remove
     if (monthlyCost > 20000) {
         $('#costDisplayArea').find('h2').addClass('redBG');
-    } else if (monthlyCost < 20000) {
+    } else if (monthlyCost <= 20000) {
         $('#costDisplayArea').find('h2').removeClass('redBG');
     }
 } //end updateMonthlyCost

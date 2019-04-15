@@ -3,12 +3,29 @@ body {
     font-family: 'Trebuchet MS', Arial, sans-serif;
 }
 
-header {
-    text-align: center;
-}
-
 h2 {
     margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+header {
+    text-align: center;
+    margin-top: 20px;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+}
+
+.jumbotron {
+    background-color: #34393F;
+    color: white;
+}
+
+.redBG {
+    background-color: red;
+    color: white;
 }
 
 #costDisplayArea {
@@ -17,18 +34,7 @@ h2 {
 
 #costDisplayArea h2 {
     display: inline-block;
-    padding: 10px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
 }
-
-.redBG {
-    background-color: red;
-}
-
-table {
-    text-align: center;
-    width: 100%;
-}
-
-/* table td {
-    width: 20%;
-} */

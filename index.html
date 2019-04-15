@@ -11,39 +11,41 @@
     <link rel="stylesheet" href="style.css">
     <title>jQuery Salary Calculator</title>
 </head>
-<body class="container-fluid">
-    <header>
-        <h1>jQuery Salary Calculator</h1>
-        <p>Thomas Roselyn</p>
+<body class="container">
+    <header class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>jQuery Salary Calculator</h1>
+            <p class="lead">Thomas Roselyn</p>
+        </div>
     </header>
     <main>
         <div id="inputArea" class="form-group">
             <h2>Add Employee</h2>
             <div class="row">
-                <div class="col">
+                <div class="col-lg-2">
                     <input id="firstNameIn" class="form-control" type="text" placeholder="First Name">
                 </div>
-                <div class="col">
+                <div class="col-lg-2">
                     <input id="lastNameIn" class="form-control" type="text" placeholder="Last Name">
                 </div>
-                <div class="col">
+                <div class="col-lg-2">
                     <input id="idIn" class="form-control" type="text" placeholder="ID">
                 </div>
-                <div class="col">
+                <div class="col-lg-2">
                     <input id="titleIn" class="form-control" type="text" placeholder="Title">
                 </div>
-                <div class="col">
+                <div class="col-lg-2">
                     <input id="annualSalaryIn" class="form-control" type="text" placeholder="Annual Salary">
                 </div>
-                <div class="col">
-                    <button id="submitEmployeeButton" class="btn-success" type="button">Submit</button>
+                <div class="col-lg-2">
+                    <button id="submitEmployeeButton" class="btn btn-success btn-block" type="button">Submit</button>
                 </div>
             </div>
         </div>
         <div id="tableArea">
             <h2>Employees</h2>
             <table id="employeeTable" class="table table-striped">
-                <thead>
+                <thead class="thead-dark">
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
